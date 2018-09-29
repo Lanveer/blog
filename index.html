@@ -1038,7 +1038,7 @@
 
 	<script>
 		function play() {
-			var audio= document.getElementsByTagName('audio');
+			var audio= document.getElementById('m');
 			audio.play();
         }
 
@@ -1057,7 +1057,7 @@
 
              else if (x==3) x=s4;
 
-             var str='<audio autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="'+x+'"></audio>';
+             var str='<audio id="m" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="'+x+'"></audio>';
              $('#music').append(str);
 
             play();
