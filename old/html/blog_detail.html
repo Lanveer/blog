@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客详情</title>
+    <meta name="description" content="个人博客  全部博客 personal blog">
+    <meta name="author" content=" 樊亮 lanveer">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" href="../.././favicon.ico">
+</head>
+<body>
+<h1>详情</h1>
+<!--<audio id="m" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="http://www.ytmp3.cn/down/46084.mp3"></audio>-->
+
+<div id="detailContainer">
+    <!--<div>-->
+        <!--<h2>这是标题</h2>-->
+        <!--<h4><span>时间：</span> <span>2018-09-21 12:29</span></h4>-->
+        <!--<h4><span>作者：</span> <span>lanveer</span></h4>-->
+        <!--<h3><span>摘要：</span> <span>2018年8月6日 - 其实除了借呗与花呗之外...</span></h3>-->
+        <!--<p><span>正文：</span> 员；</p>-->
+    <!--</div>-->
+</div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+    <!--获取id-->
+    function getQueryString(str){
+        var ret = {};
+        var query = str ? str.substr(str.indexOf('?')) : window.location.search.substr(1);
+        query.replace(/(\w+)=(\w+)/ig, function(a, b, c){
+            ret[b] = unescape(c);
+        });
+        return ret;
+    }
+
+    //获取到当前的url
+    url = window.location.href;
+    str =url;
+    re = getQueryString(str);
+    id= re.id,
+    //打印出参数
+    console.log('get id is:',id);
+
+    window.onload= function () {
+        $.ajax({
+            type: "GET",
+            url: "../js/data.json",
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+                if(data.code && data.code===200){
+                    var str='';
+                    var data=data.detail;
+                    for(var i= 0; len= data.length,i<len; i++){
+                        if(id==data[i].id){
+                            str+='  <div>\n' +
+                                '        <h2>'+data[i].title+'</h2>\n' +
+                                '        <h4><span>时间：</span> <span>'+data[i].date+'</span></h4>\n' +
+                                '        <h4><span>作者：</span> <span>'+data[i].author+'</span></h4>\n' +
+                                '        <h3><span>摘要：</span> <span>'+data[i].breif+'</span></h3>\n' +
+                                '        <p><span>正文：</span>'+data[i].content+'</p>\n' +
+                                '    </div>'
+                        }
+
+                    }
+                    $('#detailContainer').append(str);
+
+                }
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        });
+
+    }
+
+</script>
+</html>

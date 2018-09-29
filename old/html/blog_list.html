@@ -6,11 +6,38 @@
     <meta name="description" content="个人博客  全部博客 personal blog">
     <meta name="author" content=" 樊亮 lanveer">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="../.././favicon.ico">
 </head>
 <body>
 <h1>all blog list</h1>
-<audio id="m" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="http://www.ytmp3.cn/down/46084.mp3"></audio>
+<!--<audio id="m" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="http://www.ytmp3.cn/down/46084.mp3"></audio>-->
+
+<div id="listContainer">
+    <!--<p><a href="./blog_detail.html"></a><span></span><span></span></p>-->
+</div>
 
 </body>
+<script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    window.onload= function () {
+        $.ajax({
+            type: "GET",
+            url: "../js/data.json",
+            dataType: "json",
+            success: function(data) {
+                if(data.code && data.code ===200){
+                    var str='';
+                    var data= data.list;
+                    for(var i= 0; len= data.length,i<len; i++){
+                        str+='<p><a href="./blog_detail.html?id='+data[i].id+'" target="_blank"><span>'+data[i].title+'</span><span>'+data[i].date+'</span></a></p>'
+                    }
+                    $('#listContainer').append(str);
+
+                }
+            }
+        });
+
+    }
+
+</script>
 </html>
