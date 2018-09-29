@@ -117,8 +117,8 @@
    	<div class="row section-intro">
    		<div class="col-twelve">
 
-   			<h5>关于我</h5>
-   			<h1>自我介绍</h1>
+   			<h1>关于我</h1>
+   			<h5>自我介绍</h5>
 
    			<div class="intro-info">
 
@@ -216,8 +216,8 @@
 		<div class="row section-intro">
    		<div class="col-twelve">
 
-   			<h5>经历</h5>
-   			<h1>工作和学习经历</h1>
+   			<h1>经历</h1>
+   			<h5>工作和学习经历</h5>
 
    			<p class="lead">
 				工作学习历程展示
@@ -373,8 +373,9 @@
 		<div class="row section-intro">
    		<div class="col-twelve">
 
-   			<h5>博客</h5>
-   			<h1>日常开发总结以及学习经验</h1>
+   			<h1>博客</h1>
+			<h4><a href="./old/html/blog_list.html">查看全部博客</a></h4>
+   			<h5>日常开发总结以及学习经验</h5>
 
    			<p class="lead">
 			整理一些日常项目中遇到的问题，以及平时学习中总结的知识点，还有一些常见的tips，在这里做一个简单的汇总，以便于随时查阅。
@@ -651,8 +652,8 @@
 		<div class="row section-intro">
    		<div class="col-twelve">
 
-   			<h5>文章</h5>
-   			<h1>日常所见</h1>
+   			<h1>文章</h1>
+   			<h5>日常所见</h5>
 
    			<p class="lead">
 				在这里展示一些日常有感而发的文章，不涉及技术方面， 只是个人爱好以及生活感悟的总结。
@@ -876,8 +877,8 @@
 		<div class="row section-intro">
    		<div class="col-twelve">
 
-   			<h5>联系我</h5>
-   			<h1>如果你对我感兴趣，你可以通过以下的方式了解我，并且找到我</h1>
+   			<h1>联系我</h1>
+   			<h5>如果你对我感兴趣，你可以通过以下的方式了解我，并且找到我</h5>
 
    			<p class="lead">
 				茫茫人海中，你能看到这里，至少说明我们有一定的缘分，世界那么大， 偏偏你通过这个链接点进来了， 也算是开启了彼此相识的一扇大门，希望下面的联系方式可以为你提供打开大门的钥匙，期待您的联系。
@@ -1047,8 +1048,9 @@
              var s2='http://www.ytmp3.cn/down/53157.mp3';
              var s3='http://www.ytmp3.cn/down/53157.mp3';
              var s4='http://www.ytmp3.cn/down/47026.mp3';
+             var s5='http://www.ytmp3.cn/down/46084.mp3';
 
-             var x=Math.round(Math.random()*4);
+             var x=Math.round(Math.random()*5);
              if (x==0) x=s1;
 
              else if (x==1) x=s2;
@@ -1056,6 +1058,7 @@
              else if (x==2) x=s3;
 
              else if (x==3) x=s4;
+             else if (x==4) x=s5;
 
              var str='<audio id="m" autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="'+x+'"></audio>';
              $('#music').append(str);
