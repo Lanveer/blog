@@ -1037,6 +1037,10 @@
    <script src="js/main.js"></script>
 
 	<script>
+		function play() {
+			var audio= document.getElementsByTagName('audio');
+			audio.play();
+        }
 
          window.onload=function (ev) {
              var s1='http://www.ytmp3.cn/down/49326.mp3';
@@ -1055,6 +1059,8 @@
 
              var str='<audio autoplay="autoplay" controls="controls" loop="loop" preload="auto" src="'+x+'"></audio>';
              $('#music').append(str);
+
+            play();
 		 }
 
 	</script>
